@@ -60,7 +60,7 @@ We propose this algorithm:
 	\item initialize an empty set of bottleneck edges $B$
 	\item for each path $p$ in $P$
 		\begin{enumerate}
-			\item initialize $candidates := \{\}$
+			\item initialize $candidates := \O$
 			\item for each edge $e = (from, to)$ in $p$
 			\begin{enumerate}
 				\item if $flow(e) == G.capacity((to, from))$
