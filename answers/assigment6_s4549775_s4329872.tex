@@ -54,7 +54,7 @@ We propose this algorithm:
 
 \begin{enumerate}
 	\item generate a residual graph $R$ from input graph $G$
-	\item find all non cyclic paths $P$ from $t$ to $s$ in $R$
+	\item find all non cyclic paths $P$ from $t$ to $s$ in $R$ \label{paths}
 	\item initialize an empty set of bottleneck edges $B$
 	\item for each path $p$ in $P$
 		\begin{enumerate}
@@ -75,6 +75,10 @@ We propose this algorithm:
 	(This could be done with BFS.)
 	\item output $B$
 \end{enumerate}
+
+Where $G.capacity(e)$ returns the capacity of edge $e$ in graph $G$.
+
+Correctness: A bottleneck edge is defined as an edge whose capacity limits the maximum flow of the graph. For any path $p$ in $P$ (after step \ref{paths}) there is either one or more edges operating at full capacity. If there is only one edge operating at full capacity then increasing its capacity will result in higher maximum flow. If there is more than one edge operating at full capacity then increasing either of them will not improve the flow as it will still be limited by another edge on the path.
 
 \section{} %4
 \section{} %5
