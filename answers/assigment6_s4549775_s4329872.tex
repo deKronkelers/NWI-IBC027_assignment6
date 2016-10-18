@@ -50,6 +50,32 @@ The algorithm does not change flow through the graph because flows that were lim
 We iterate over each vertex once ($O(|V|)$) and each edge twice (because each edge has one source and one destination and we touch it once for both: $O(2|E|) = O(|E|)$) and do $O(1)$ work. The total time complexity is $O(|V| + |E|)$.
 
 \section{} %3
+We propose this algorithm:
+
+\begin{enumerate}
+	\item generate a residual graph $R$ from input graph $G$
+	\item find all non cyclic paths $P$ from $t$ to $s$ in $R$
+	\item initialize an empty set of bottleneck edges $B$
+	\item for each path $p$ in $P$
+		\begin{enumerate}
+			\item initialize $candidates := \{\}$
+			\item for each edge $e = (from, to)$ in $p$
+			\begin{enumerate}
+				\item if $flow(e) == G.capacity((to, from))$
+				\begin{enumerate}
+					\item $candidates := candidates + e$
+				\end{enumerate}
+			\end{enumerate}
+			\item if $candidates$ contains exactly one edge $e$
+			\begin{enumerate}
+				\item $B := B + e$
+			\end{enumerate}
+		\end{enumerate}
+
+	(This could be done with BFS.)
+	\item output $B$
+\end{enumerate}
+
 \section{} %4
 \section{} %5
 
