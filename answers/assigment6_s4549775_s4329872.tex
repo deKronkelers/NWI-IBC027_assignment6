@@ -108,6 +108,13 @@ We are given $A$, a set of reviewers, and $B$, a set of papers.
 	\item for all edges $(a, b), a \in A, b \in B$, that are used for maximum flow, assign reviewer $a$ to paper $b$
 \end{enumerate}
 
+Correctness:
+\begin{itemize}
+	\item any reviewer can receives only as much flow as he can review papers so he/she cannot get more papers then he/she can read
+	\item outgoing edges from all papers are limited to the number of reviewers wanted to they cannot get reviewed by too many reviewers
+	\item Ford-Fulkerson is proven correct to find the maximum flow
+\end{itemize}
+
 \section{} %5
 
 \end{document}
