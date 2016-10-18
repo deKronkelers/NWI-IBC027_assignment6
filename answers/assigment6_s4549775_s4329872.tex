@@ -22,6 +22,32 @@ This was done in collaboration with Constantin Blach (s4329872).
 
 \section{} %1
 \section{} %2
+We came up with the following algorithm:
+
+\begin{lstlisting}
+G' := G
+
+for vertex in G'.V
+	if capacity(vertex.incoming) > l(vertex)
+		inc := vertex.incoming
+		out := vertex.outgoing
+		G'.V = G'.V - vertex
+		vertex_in := new Vertex(incoming=inc)
+		vertex_out := new Vertex(outgoing=out)
+		edge := new Edge(
+			from=vertex_in
+			,to=vertex_out
+			,capacity=l(vertex)
+		)
+		G'.V := G'.V + {vertex_in, vertex_out}
+\end{lstlisting}
+
+Where $l(v)$ returns the maximum flow through vertex $v$, $v.incoming$ are the incoming edges to vertex $v$, $v.outgoing$ are the outgoing edges from vertex $v$, and $G.V$ are the vertices of graph $G$.
+
+The algorithm does not change flow through the graph because flows that were limited by $l(v)$ are now limited by the edge between $v\_in$ and $v\_out$.
+
+We iterate over each vertex ($O(|V|)$) and each edge ($O(|E|)$) once and do $O(1)$ work. The total time complexity is $O(|V| + |E|)$.
+
 \section{} %3
 \section{} %4
 \section{} %5
