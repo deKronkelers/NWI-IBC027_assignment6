@@ -81,6 +81,19 @@ Where $G.capacity(e)$ returns the capacity of edge $e$ in graph $G$.
 
 Correctness: A bottleneck edge is defined as an edge whose capacity limits the maximum flow of the graph. For any path $p$ in $P$ (after step \ref{paths}) there is either one or more edges operating at full capacity. If there is only one edge operating at full capacity then increasing its capacity will result in higher maximum flow. If there is more than one edge operating at full capacity then increasing either of them will not improve the flow as it will still be limited by another edge on the path.
 
+Time complexity by step:
+\begin{enumerate}
+	\item $O(|E|f)$ where $f$ is the maximum flow
+	\item $O(|V| + |E|)$
+	\item $O(1)$
+	\item $O(|V||E|)$
+	\begin{enumerate}
+		\item $O(1)$
+		\item $O(|E|)$
+		\item $O(1)$
+	\end{enumerate}
+\end{enumerate}
+
 \section{} %4
 \section{} %5
 
