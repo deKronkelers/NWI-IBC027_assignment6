@@ -47,7 +47,7 @@ Where $l(v)$ returns the maximum flow through vertex $v$, $v.incoming$ are the i
 
 The algorithm does not change flow through the graph because flows that were limited by $l(v)$ are now limited by the edge between $v\_in$ and $v\_out$.
 
-We iterate over each vertex once ($O(|V|)$) and each edge twice ($O(|E|)$) and do $O(1)$ work. The total time complexity is $O(|V| + |E|)$.
+We iterate over each vertex once ($O(|V|)$) and each edge twice (because each edge has one source and one destination and we touch it once for both: $O(2|E|) = O(|E|)$) and do $O(1)$ work. The total time complexity is $O(|V| + |E|)$.
 
 \section{} %3
 \section{} %4
