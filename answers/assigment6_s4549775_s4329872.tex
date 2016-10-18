@@ -97,6 +97,17 @@ Time complexity by step:
 \end{enumerate}
 
 \section{} %4
+We are given $A$, a set of reviewers, and $B$, a set of papers.
+
+\begin{enumerate}
+	\item make a graph $G = (A \cup B \cup \{s, t\}, \O)$
+	\item for each $a \in A$ add an edge of capacity $m_A$ from $s$ to $a$
+	\item for each $b \in B$ add an edge of capacity $m_B$ from $b$ to $t$
+	\item add an edge $(a, b)$ of capacity $1$ where $a$ and $b$ have the same topic
+	\item find the maximum flow from $s$ to $t$ with Ford-Fulkerson
+	\item for all edges $(a, b), a \in A, b \in B$, that are used for maximum flow, assign reviewer $a$ to paper $b$
+\end{enumerate}
+
 \section{} %5
 
 \end{document}
