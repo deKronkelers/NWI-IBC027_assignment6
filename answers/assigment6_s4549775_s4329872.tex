@@ -34,12 +34,13 @@ for vertex in G'.V
 		G'.V = G'.V - vertex
 		vertex_in := new Vertex(incoming=inc)
 		vertex_out := new Vertex(outgoing=out)
+		G'.V := G'.V + {vertex_in, vertex_out}
 		edge := new Edge(
 			from=vertex_in
 			,to=vertex_out
 			,capacity=l(vertex)
 		)
-		G'.V := G'.V + {vertex_in, vertex_out}
+		G'.E := G'.E + edge
 \end{lstlisting}
 
 Where $l(v)$ returns the maximum flow through vertex $v$, $v.incoming$ are the incoming edges to vertex $v$, $v.outgoing$ are the outgoing edges from vertex $v$, and $G.V$ are the vertices of graph $G$.
